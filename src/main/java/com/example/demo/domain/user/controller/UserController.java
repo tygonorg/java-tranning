@@ -1,8 +1,9 @@
-package com.example.demo.controller;
+package com.example.demo.domain.user.controller;
 
-import com.example.demo.entity.User;
-import com.example.demo.service.UserService;
-import org.springframework.beans.factory.annotation.Autowired;
+import com.example.demo.domain.user.dto.UserRegistrationDTO;
+import com.example.demo.domain.user.entity.User;
+import com.example.demo.domain.user.service.UserService;
+import lombok.RequiredArgsConstructor;
 import org.springframework.core.io.InputStreamResource;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.MediaType;
@@ -14,10 +15,15 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/api/users")
+@RequiredArgsConstructor
 public class UserController {
 
-    @Autowired
-    private UserService userService;
+    private final UserService userService;
+
+    @PostMapping("/register")
+    public ResponseEntity<User> registerUser(@RequestBody UserRegistrationDTO registrationDTO) {
+        return ResponseEntity.ok(userService.registerUser(registrationDTO));
+    }
 
     @GetMapping
     public List<User> getAllUsers() {

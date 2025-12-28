@@ -1,6 +1,6 @@
-package com.example.demo.service;
+package com.example.demo.domain.shared;
 
-import com.example.demo.entity.User;
+import com.example.demo.domain.user.entity.User;
 import com.lowagie.text.Document;
 import com.lowagie.text.DocumentException;
 import com.lowagie.text.Font;
@@ -35,7 +35,7 @@ public class PdfService {
 
             PdfPTable table = new PdfPTable(4);
             table.setWidthPercentage(100);
-            table.setWidths(new int[]{1, 3, 3, 3});
+            table.setWidths(new int[] { 1, 3, 3, 3 });
 
             addTableHeader(table);
             addRows(table, users);

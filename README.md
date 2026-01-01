@@ -28,3 +28,8 @@ To build the executable JAR file without running it:
 ```
 
 The artifacts will be generated in the `build/libs` directory.
+
+## API Documentation
+
+Access the API documentation via Swagger UI at:
+[http://localhost:8080/swagger-ui/index.html](http://localhost:8080/swagger-ui/index.html)
